@@ -3,8 +3,7 @@ import os
 from data_loader import load_transactions
 from preprocessing import preprocess_data
 from model import train_and_evaluate_model, predict_risk, load_trained_model
-from config import MODEL_PATH
-from src.config import DATA_FILEPATH
+from config import MODEL_PATH, DATA_FILEPATH
 
 
 def main():
