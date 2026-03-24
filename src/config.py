@@ -1,5 +1,3 @@
-import logging
-
 DATA_FILEPATH = '../data/finance_dataset.csv'
 MODEL_PATH = '../models/logistic_model.pkl'
 
