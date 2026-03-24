@@ -21,7 +21,7 @@ def train_and_evaluate_model(X, y):  # model training and evaluation
     logging.info("Evaluating model with Logic regression.")
     predictions = model.predict(X_test)
     accuracy = accuracy_score(y_test, predictions)
-    logging.info(f"Model accuracy on test set: {accuracy:*100.2f}")
+    logging.info(f"Model accuracy on test set: {accuracy*100:.2f}")
 
     # save the model locally
     joblib.dump(model, MODEL_PATH)

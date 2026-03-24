@@ -4,11 +4,13 @@ from data_loader import load_transactions
 from preprocessing import preprocess_data
 from model import train_and_evaluate_model, predict_risk, load_trained_model
 from config import MODEL_PATH
+from src.config import DATA_FILEPATH
+
 
 def main():
     logging.info("Starting the financial transaction risk classification process.")
 
-    df = load_transactions(MODEL_PATH)
+    df = load_transactions(DATA_FILEPATH)
     X, y = preprocess_data(df)
     if not os.path.exists(MODEL_PATH):
         logging.info("Pre-trained model not found. Training begins...")
