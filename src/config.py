@@ -12,4 +12,4 @@ QUANTILE_THRESHOLD = 0.9  # quantile threshold for high-risk transactions based 
 
 # model parameters
 MODEL_MAX_ITER = 100000
-TEST_SIZE = 1
+TEST_SIZE = 0.20

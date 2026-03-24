@@ -3,6 +3,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 from config import EPSILON, LARGE_TRANSACTION_THRESHOLD, QUANTILE_THRESHOLD
 
+
 def preprocess_data(df: pd.DataFrame):
     data = df.copy()
 
