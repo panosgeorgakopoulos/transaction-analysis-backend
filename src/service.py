@@ -7,6 +7,7 @@ from config import MODEL_PATH, DATA_FILEPATH
 
 
 def main():
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
     logging.info("Starting the financial transaction risk classification process.")
 
     df = load_transactions(DATA_FILEPATH)

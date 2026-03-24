@@ -1,9 +1,7 @@
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
 DATA_FILEPATH = '../data/finance_dataset.csv'
-MODEL_PATH = '../models/logistic_model.plk'
+MODEL_PATH = '../models/logistic_model.pkl'
 
 # processing parameters
 EPSILON = 0.001  # small value to avoid division by zero in ratio calculations

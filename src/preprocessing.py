@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import StandardScaler
 from config import EPSILON, LARGE_TRANSACTION_THRESHOLD, QUANTILE_THRESHOLD
 
 
@@ -33,11 +32,5 @@ def preprocess_data(df: pd.DataFrame):
     # Scaling for accuracy in training
     X = data.drop(columns=['target_risk', 'Customer_ID', 'Date', 'Transaction_Status'])
     y = data['target_risk']
-
-    scaler = StandardScaler()
-
-    cols_to_scale = ['Transaction_Amount', 'Account_Balance', 'amount_to_balance_ratio', 'transaction_amount_log']
-
-    X[cols_to_scale] = scaler.fit_transform(X[cols_to_scale])
 
     return X, y

@@ -7,7 +7,7 @@ def load_transactions(filepath: str = DATA_FILEPATH) -> pd.DataFrame:
     try:
         logging.info(f"Loading transactions from file: {filepath}")
         df = pd.read_csv(filepath)
-    except:
+    except Exception as e:
         logging.error(f"Failed to load data from {filepath}. Please check the file path and format.")
         raise
 
@@ -21,9 +21,9 @@ def load_transactions(filepath: str = DATA_FILEPATH) -> pd.DataFrame:
 
     df['Transaction_Amount'] = pd.to_numeric(df['Transaction_Amount'], errors='coerce')
     df['Account_Balance'] = pd.to_numeric(df['Account_Balance'], errors='coerce')
+    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
 
-    df['Date'] = pd.to_datetime(df['Date'])
-    df = df.dropna(subset=['Transaction_Amount', 'Customer_ID'])
+    df = df.dropna(subset=['Transaction_Amount', 'Customer_ID', 'Date'])
 
     logging.info(f" {len(df)} records have been loaded from the file {filepath}")
 

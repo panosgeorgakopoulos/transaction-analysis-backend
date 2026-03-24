@@ -3,6 +3,8 @@ import logging
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
 from config import MODEL_PATH, MODEL_MAX_ITER, TEST_SIZE
 
 
@@ -12,8 +14,10 @@ def train_and_evaluate_model(X, y):  # model training and evaluation
 
     # training
     logging.info("Training model with Logic regression.")
-    model = LogisticRegression(max_iter=MODEL_MAX_ITER,
-                               class_weight='balanced')  # scaling by LogisticRegression, iter change for convergence, and we use balanced to handle class imbalance
+    model = Pipeline([
+        ('scaler', StandardScaler()),
+        ('classifier', LogisticRegression(max_iter=MODEL_MAX_ITER, class_weight='balanced'))
+    ])  # scaling by LogisticRegression, iter change for convergence, and we use balanced to handle class imbalance
     model.fit(X_train, y_train)
 
     # evaluation of the model to the test data
